@@ -25,16 +25,16 @@ public class WriteToFile {
           boolean flag = true;
           while (flag) {
 
-              System.out.println("\n1 - Записать заметку в файл\n0 - Выход");
+              System.out.println("\n1 - Make a new note \n0 - Exit");
               String userChoice = scanner.nextLine();
               switch (userChoice) {
                   case "1":
 
-                      System.out.println("Введите Вашу заметку: ");
+                      System.out.println("Write your new note: ");
                       String userInput = sc.nextLine();
                       try {
                           BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
-                          writer.append("\nДозапись в файл: ");
+                          writer.append("\nAdd to the file: ");
                           writer.append(fixDate.getCurrentDate());
                           writer.append("  ->  ");
                           writer.append(userInput);
@@ -47,7 +47,7 @@ public class WriteToFile {
                       flag = false;
                       break;
                   default:
-                      System.out.println("такого варианта нет");
+                      System.out.println("There is not such available option.");
                       break;
 
                     }
