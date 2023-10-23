@@ -8,3 +8,13 @@
 
 
 Скомпилируйте и запустите посредством CLI.
+
+1. Компиляция:
+
+![image](https://github.com/MilaVoroina97/Java_Core_1/assets/96314768/dbb06d7d-549d-465c-a798-d8123674a295)
+
+2. Запуск:
+
+![image](https://github.com/MilaVoroina97/Java_Core_1/assets/96314768/8aaa0c65-aeb4-4a63-82dd-8726067986be)
+
+ 
