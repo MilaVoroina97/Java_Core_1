@@ -34,7 +34,7 @@ public class Main {
      */
     public static void checkLogin(String login) throws WrongLoginException{
         if(login.length() >= 20){
-            throw new WrongLoginException("Ошибка! Превышена длина логина.");
+            throw new WrongLoginException(" Превышение длины логина.");
         }
 
         CharacterIterator it = new StringCharacterIterator(login);
@@ -57,11 +57,11 @@ public class Main {
     public static void checkPasswords(String password, String confirmPassword) throws WrongPasswordException{
 
         if(!password.equals(confirmPassword)){
-            throw new WrongPasswordException("Ошибка! Пароли не одинаковые.");
+            throw new WrongPasswordException("Пароли не совпадают.");
         }
 
         if(password.length() >= 20){
-            throw new WrongPasswordException("Ошибка! Превышена длина логина.");
+            throw new WrongPasswordException("Превышение длины логина.");
         }
 
         char[] character = password.toCharArray();
