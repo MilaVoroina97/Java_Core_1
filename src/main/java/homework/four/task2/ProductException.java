@@ -1,4 +1,11 @@
 package homework.four.task2;
 
-public class ProductException {
+/**
+ * Исключение, выбрасываемое при неверном товаре.
+ */
+public class ProductException extends Exception{
+
+    public ProductException(String message) {
+        super(message);
+    }
 }
