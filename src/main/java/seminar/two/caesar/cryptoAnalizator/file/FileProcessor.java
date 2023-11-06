@@ -1,6 +1,9 @@
 package seminar.two.caesar.cryptoAnalizator.file;
 
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.List;
 
@@ -17,6 +20,13 @@ public class FileProcessor {
      */
 
     public List<String> readFile(String filename){
-        return null;
+        try{
+
+            Path filePath = Path.of(filename);
+            return Files.readAllLines(filePath);
+        }catch (IOException ex){
+
+            throw new RuntimeException(ex.getMessage(), ex);
+        }
     }
 }
