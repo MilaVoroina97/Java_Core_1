@@ -32,7 +32,7 @@ public class FileProcessor {
 
     public List<String> readFile(String filename){
         try{
-
+            // TODO изменить логику чтения и записи файлов, так как данная реализация работает только с легковесными файлами
             Path filePath = Path.of(filename);
             return Files.readAllLines(filePath);
         }catch (IOException | InvalidPathException ex){
