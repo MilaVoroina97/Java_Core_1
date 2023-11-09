@@ -32,7 +32,7 @@ public class CaesarCipher {
         StringBuilder stringBuilder = new StringBuilder();
         for(int i = 0; i < orginalText.length(); i++){
             Character originalCharacter = toLowerCase(orginalText.charAt(i));
-            int originalCharIndex = alphabet.getCharByIndex(originalCharacter);
+            int originalCharIndex = alphabet.getCharIndex(originalCharacter);
             int newIndex = (alphabet.getAlphabetSize() + (originalCharIndex + key)) % alphabet.getAlphabetSize();
 
             stringBuilder.append(alphabet.getCharByIndex(newIndex));

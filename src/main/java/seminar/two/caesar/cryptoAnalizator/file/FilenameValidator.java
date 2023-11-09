@@ -85,13 +85,14 @@ public class FilenameValidator {
         // разбиваем путь на кусочки(по разделителю операционной системы) и проверяем в каждом,
         // нет ли там системных файлов
 
-        for(String pathPart : filename.split(System.getProperty(SYSTEM_SEPARATOR))){
-
-            if(FORBIDDEN_FILE_DIR.contains(pathPart)){
-
-                throw new FileProcessingException("Path contains forbidden path: " + pathPart);
-            }
-        }try{
+//        for(String pathPart : filename.split(SYSTEM_SEPARATOR)){
+//
+//            if(FORBIDDEN_FILE_DIR.contains(pathPart)){
+//
+//                throw new FileProcessingException("Path contains forbidden path: " + pathPart);
+//            }
+//        }
+        try{
 
             return Path.of(filename);
 

@@ -30,12 +30,12 @@ public class CaesarAlphabet {
 
     public CaesarAlphabet() {
 
-        List<Character> temporaryAlphabet = new ArrayList<>();
-        temporaryAlphabet.addAll(Arrays.asList(RU_ALPHABET));
-        temporaryAlphabet.addAll(Arrays.asList(EN_ALPHABET));
-        temporaryAlphabet.addAll(Arrays.asList(SYMBOL_ALPHABET));
+        this.alphabet = new ArrayList<>();
+        alphabet.addAll(Arrays.asList(RU_ALPHABET));
+        alphabet.addAll(Arrays.asList(EN_ALPHABET));
+        alphabet.addAll(Arrays.asList(SYMBOL_ALPHABET));
 
-        this.alphabet = List.copyOf(temporaryAlphabet); //List.copyOf возвращает immutable список
+//        this.alphabet = List.copyOf(temporaryAlphabet); //List.copyOf возвращает immutable список
 
         this.charIndexes = new HashMap<>();
 
