@@ -7,6 +7,7 @@ package seminar.two.caesar.cryptoAnalizator.consoleui;
 
 public enum Operation {
 
+    //TODO можно в лямбде-выражении Runnable записать другую логику(функцию) шифрования
     EXIT(0,"exit",() -> System.out.println("Operation 1")),
 
     ENCRYPTION(1 ,"encrypt file",() -> System.out.println("Operation 2")),

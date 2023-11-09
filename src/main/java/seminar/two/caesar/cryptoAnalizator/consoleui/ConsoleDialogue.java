@@ -104,6 +104,10 @@ public class ConsoleDialogue implements Dialogue{
                 break;
             case ENCRYPTION:
                 processEncryptionOperation();
+                break;
+            case DECRYPTION:
+                processDecryptionOperation();
+                break;
         }
 
     }
@@ -122,8 +126,36 @@ public class ConsoleDialogue implements Dialogue{
         try{
             coder.encrypt(inputFileName,outputFileName,key);
             System.out.println("Done.");
+            /* Обработка ошибки,если она произойдет, так как данный класс отвечает за общение с пользователем:
+            * */
         }catch (FileProcessingException | CaesarAlphabetException ex){
 
+            /*Выводится информация на экран пользователя о том, что что-то пошло не так*/
+            System.out.println("Error. Reason: " + ex.getMessage());
+            ex.printStackTrace();
+        }
+
+    }
+
+    private void processDecryptionOperation(){
+
+        System.out.println("Enter filename which contains encrypted text: ");
+        String inputFileName = readString();
+
+        System.out.println("Enter filename which be used for result saving: ");
+        String outputFileName = readString();
+
+        System.out.println("Enter key :");
+        int key = readInt();
+
+        try{
+            coder.decrypt(inputFileName,outputFileName,key);
+            System.out.println("Done.");
+            /* Обработка ошибки,если она произойдет, так как данный класс отвечает за общение с пользователем:
+             * */
+        }catch (FileProcessingException | CaesarAlphabetException ex){
+
+            /*Выводится информация на экран пользователя о том, что что-то пошло не так*/
             System.out.println("Error. Reason: " + ex.getMessage());
             ex.printStackTrace();
         }
