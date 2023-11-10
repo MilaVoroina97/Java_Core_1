@@ -22,7 +22,7 @@ public class FilenameValidator {
     private static final List<String> FORBIDDEN_FILE_DIR =
             List.of("etc","proc",".bash_profile",".bash_history");
 
-    private static final String SYSTEM_SEPARATOR = System.getProperty("file.separator");
+//    private static final String SYSTEM_SEPARATOR = System.getProperty("file.separator");
 
     /**
      * Метод для проверки пути файла для дальнейшей записи
@@ -85,13 +85,14 @@ public class FilenameValidator {
         // разбиваем путь на кусочки(по разделителю операционной системы) и проверяем в каждом,
         // нет ли там системных файлов
 
-//        for(String pathPart : filename.split(SYSTEM_SEPARATOR)){
-//
-//            if(FORBIDDEN_FILE_DIR.contains(pathPart)){
-//
-//                throw new FileProcessingException("Path contains forbidden path: " + pathPart);
-//            }
-//        }
+
+        for(String pathPart : filename.split("////")){
+
+            if(FORBIDDEN_FILE_DIR.contains(pathPart)){
+
+                throw new FileProcessingException("Path contains forbidden path: " + pathPart);
+            }
+        }
         try{
 
             return Path.of(filename);
