@@ -13,9 +13,9 @@ public class MoveArray {
     public static void main(String[] args) {
         int[] arrayToShift = createArray();
         printArray(arrayToShift);
-        int[] shiftedArray = shiftArray3(arrayToShift,5);
+        shiftArray4(arrayToShift,3);
         System.out.println();
-        printArray(shiftedArray);
+        printArray(arrayToShift);
     }
 
     public static int[] shiftArray(int[] arr, int shiftValue){
@@ -33,15 +33,14 @@ public class MoveArray {
 
     public static int[] createArray(){
         Random random = new Random();
-        int[] newArray = random.ints(0, 100).distinct().limit(6).toArray();
+        int[] newArray = random.ints(0, 100).distinct().limit(7).toArray();
         System.out.println(Arrays.toString(newArray));
         return newArray;
     }
 
     public static void printArray(int[] array){
-        for(int i : array){
-            System.out.println(i);
-        }
+
+        System.out.println(Arrays.toString(array));
     }
 
     public static int[] shiftArray2(int[] arr, int shiftValue){
@@ -106,6 +105,20 @@ public class MoveArray {
             return a;
         }else{
             return greatestCommonDivisor(b, a % b);
+        }
+    }
+
+    public static void shiftArray4(int[] array, int shiftValue){
+
+        shiftValue %= array.length;
+        int shift = array.length + shiftValue;
+        shift %= array.length;
+
+        for(int i = 0; i < shift; i++){
+
+            int temp = array[array.length - 1];
+            System.arraycopy(array,0,array,1,array.length - 1);
+            array[0] = temp;
         }
     }
 

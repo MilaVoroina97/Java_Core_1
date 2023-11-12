@@ -7,7 +7,8 @@ public class MoveNullOneArray {
 
     public static void main(String[] args) {
         int[] array = {1,0,0,1,1};
-        System.out.println(Arrays.toString(changeOneToNullInArray(array)));
+        array = changeOneToNullInArray2(array);
+        printArray(array);
 
     }
 
@@ -20,10 +21,20 @@ public class MoveNullOneArray {
         return arr;
     }
 
-    public static void printArray(int[] array){
-        for(int i : array){
-            System.out.println(i);
+    public static int[] changeOneToNullInArray2(int[] arr){
+        for(int i = 0; i < arr.length; i++){
+
+            arr[i] = 1 - arr[i];
+            //arr[i] = (arr[i] - 1) * -1;
+            //arr[i] = (arr[i] + 1) % 2;
         }
+        return arr;
+    }
+
+
+
+    public static void printArray(int[] array){
+        System.out.println(Arrays.toString(array));
     }
 
 
