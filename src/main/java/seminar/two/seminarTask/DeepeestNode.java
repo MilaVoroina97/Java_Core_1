@@ -40,6 +40,7 @@ public class DeepeestNode {
 
         // двигаемся по левой стороне и уменьшаем глубину на 1 каждый раз
         Node result = findDeepestNode(node.left,depth - 1);
+        // выдает левый элемент только в том, случае если этот левый элемент будет вести к искомому элементу
         if(result != null) return result;
         // двигаемся по правой стороне и уменьшаем глубину на 1 каждый раз
         return findDeepestNode(node.right,depth - 1);
