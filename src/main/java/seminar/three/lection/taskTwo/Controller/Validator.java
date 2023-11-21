@@ -1,13 +1,33 @@
 package seminar.three.lection.taskTwo.Controller;
 
-import seminar.three.lection.taskTwo.Exceptions.UncorrectAcceptDataRange;
 import seminar.three.lection.taskTwo.Interfaces.CheckJumpCapability;
 import seminar.three.lection.taskTwo.Interfaces.CheckRunCapability;
 import seminar.three.lection.taskTwo.Interfaces.CheckSwimCapability;
+import seminar.three.lection.taskTwo.Model.Animal;
+import seminar.three.lection.taskTwo.Model.AnimalType;
+import seminar.three.lection.taskTwo.Model.Cat;
+
+import java.util.Collections;
 
 public class Validator implements CheckRunCapability, CheckJumpCapability, CheckSwimCapability {
 
-    public boolean validate(String userChoiceData, double userLengthInput){
+    public boolean validate(String userChoiceData, double userLengthInput,AnimalType type){
+        if(type == AnimalType.Cat){
+            for(int i = 0; i < Animal.getActions().size(); i++){
+                if(Animal.getActions().get(i).equals("run")){
+                    Double maxLength = Collections.max(Cat.getMaxRunLength());
+                    Double minLength = Collections.min(Cat.getMaxRunLength());
+
+                    return checkRunCapability(userLengthInput,maxLength,minLength);
+                }if(Animal.getActions().get(i).equals("swim")){
+
+//                    Double maxLength = Collections.max(Cat.getMaxSwimLength());
+//                    Double minLength = Collections.min(Cat.getMaxSwimLength());
+                    System.out.println("Кошка не умеет плавать");
+                    return false;
+                }
+            }
+        }
         return true;
     }
 
