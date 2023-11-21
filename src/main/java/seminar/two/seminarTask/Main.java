@@ -14,6 +14,5 @@ public class Main {
         deepeestNode.addNode(11);
         deepeestNode.addNode(12);
         deepeestNode.getDeepestNode();
-
     }
 }
