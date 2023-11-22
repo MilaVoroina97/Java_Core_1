@@ -2,5 +2,7 @@ package seminar.three.lection.taskTwo.Interfaces;
 
 public interface CheckRunCapability {
 
-    public  boolean checkRunCapability(double runLength,double minRunLength, double maxRunLength);
+    public  boolean checkCatRunCapability(double runLength);
+    public  boolean checkDogRunCapability(double runLength);
+    public  boolean checkBirdRunCapability(double runLength);
 }

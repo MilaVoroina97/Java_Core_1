@@ -15,16 +15,16 @@ public class Bird extends Animal{
         super(RANGE_RUN_LENGTH, RANGE_SWIM_LENGTH, RANGE_JUMP_HEIGHT);
     }
 
-//    public static List<Double> getMaxJumpHeight() {
-//        return MAX_JUMP_HEIGHT;
-//    }
-//    public static List<Double> getMaxRunLength(){
-//        return MAX_RUN_LENGTH;
-//    }
-//
-//    public static List<Double> getMaxSwimLength(){
-//        return MAX_SWIM_LENGTH;
-//    }
+    public static List<Double> getRangeJumpHeight() {
+        return RANGE_JUMP_HEIGHT;
+    }
+    public static List<Double> getRangeRunLength(){
+        return RANGE_RUN_LENGTH;
+    }
+
+    public static List<Double> getRangeSwimLength(){
+        return RANGE_SWIM_LENGTH;
+    }
 
 
     @Override
