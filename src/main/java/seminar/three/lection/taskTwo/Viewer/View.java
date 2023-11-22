@@ -1,4 +1,7 @@
 package seminar.three.lection.taskTwo.Viewer;
 
-public class View {
+public interface View<T>{
+
+    public double getUserInput();
+    public void showMessage(String msg);
 }
