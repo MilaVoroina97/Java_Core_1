@@ -1,4 +1,4 @@
-package seminar.three.lection.taskTwo.Controller;
+package seminar.three.lection.taskOne.Controller;
 
 import seminar.three.lection.taskTwo.Model.ActionsType;
 import seminar.three.lection.taskTwo.Model.Animal;

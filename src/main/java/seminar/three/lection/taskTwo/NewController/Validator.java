@@ -1,11 +1,14 @@
 package seminar.three.lection.taskTwo.NewController;
 
 import seminar.three.lection.taskTwo.Exceptions.UncorrectAcceptDataRange;
+import seminar.three.lection.taskTwo.Interfaces.CheckJumpCapability;
+import seminar.three.lection.taskTwo.Interfaces.CheckRunCapability;
+import seminar.three.lection.taskTwo.Interfaces.CheckSwimCapability;
 import seminar.three.lection.taskTwo.Model.*;
 
 import java.util.Collections;
 
-public class Validator {
+public class Validator implements CheckRunCapability, CheckJumpCapability, CheckSwimCapability {
 
     public boolean validate(double distance, AnimalType animalType, ActionsType actionsType){
 
@@ -19,15 +22,14 @@ public class Validator {
             else
                 result = checkSwimCapability(distance,animalType);
         }catch (UncorrectAcceptDataRange ex){
-            stringBuilder.append("\n");
-            stringBuilder.append(ex.getMessage());
+
+            throw new UncorrectAcceptDataRange("You should enter length or height in allowed range");
         }
-        if(!result)
-            throw  new UncorrectAcceptDataRange(stringBuilder.toString());
         return result;
 
     }
 
+    @Override
     public boolean checkJumpCapability(double jumpHeight, AnimalType animalType){
 
         if(animalType.equals(AnimalType.Cat))
@@ -41,6 +43,7 @@ public class Validator {
                     && jumpHeight < Collections.max(Bird.getRangeJumpHeight());
 
     }
+    @Override
     public boolean checkRunCapability(double runLength, AnimalType animalType){
 
         if(animalType.equals(AnimalType.Cat))
@@ -54,6 +57,8 @@ public class Validator {
                     && runLength < Collections.max(Bird.getRangeRunLength());
 
     }
+
+    @Override
     public boolean checkSwimCapability(double swimLength, AnimalType animalType){
         if(animalType.equals(AnimalType.Cat))
             return false;

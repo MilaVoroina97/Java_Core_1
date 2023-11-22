@@ -1,8 +1,9 @@
 package seminar.three.lection.taskTwo.Interfaces;
 
+import seminar.three.lection.taskTwo.Model.AnimalType;
+
 public interface CheckJumpCapability {
 
-    public  boolean checkCatJumpCapability(double jumpHeight);
-    public  boolean checkDogJumpCapability(double jumpHeight);
-    public  boolean checkBirdJumpCapability(double jumpHeight);
+    public  boolean checkJumpCapability(double jumpHeight, AnimalType animalType);
+
 }

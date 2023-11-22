@@ -1,6 +1,5 @@
 package seminar.three.lection.taskTwo.Viewer;
 
-import seminar.three.lection.taskTwo.Exceptions.UncorrectAcceptDataRange;
 import seminar.three.lection.taskTwo.Model.ActionsType;
 import seminar.three.lection.taskTwo.Model.AnimalType;
 import seminar.three.lection.taskTwo.NewController.AnimalController;
@@ -21,15 +20,16 @@ public class Menu {
             while (flag){
                 System.out.println("Choose type of animal, which you want to check: ");
                 AnimalType animalType = chooseTypeMenu(in);
-                ActionsType actionsType = chooseActionMenu(in);
-                System.out.println("Choose type of action, which you want to check: ");
-                if (animalType != null && actionsType != null) {
-
-                    try{
-                        animalController.validateAnimal(animalType,actionsType);
-                        System.out.println("Checked");
-                    }catch (UncorrectAcceptDataRange e){
-                        System.out.println(e.getMessage());
+                if (animalType != null) {
+                    System.out.println("Choose type of action, which you want to check: ");
+                    ActionsType actionsType = chooseActionMenu(in);
+                    if(actionsType != null){
+                        try{
+                            animalController.validateAnimal(animalType,actionsType);
+                            System.out.println("Checked");
+                        }catch (RuntimeException e){
+                            System.out.println(e.getMessage());
+                        }
                     }
                 }else{
                     flag = false;

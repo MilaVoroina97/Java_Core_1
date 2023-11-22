@@ -16,15 +16,12 @@ public class ConsoleView implements View<Animal>{
     public double getUserInput() throws NumberFormatException {
         while (true){
             System.out.println("Enter a double number.");
-            if(scanner.hasNextDouble()){
-                try{
-                    return Double.parseDouble(scanner.nextLine());
-
-                }catch (NumberFormatException ne){
+            if(scanner.hasNextDouble()) {
+                try {
+                    return Double.parseDouble(scanner.next());
+                } catch (NumberFormatException ne) {
                     System.out.println("Input is not a number, continue");
                 }
-            }else{
-                System.out.println("You need to enter only integer number");
             }
 
         }

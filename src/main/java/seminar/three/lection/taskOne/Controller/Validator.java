@@ -1,14 +1,12 @@
-package seminar.three.lection.taskTwo.Controller;
+package seminar.three.lection.taskOne.Controller;
 
 import seminar.three.lection.taskTwo.Exceptions.UncorrectAcceptDataRange;
-import seminar.three.lection.taskTwo.Interfaces.CheckJumpCapability;
-import seminar.three.lection.taskTwo.Interfaces.CheckRunCapability;
-import seminar.three.lection.taskTwo.Interfaces.CheckSwimCapability;
+
 import seminar.three.lection.taskTwo.Model.*;
 
 import java.util.Collections;
 
-public class Validator implements CheckSwimCapability, CheckJumpCapability, CheckRunCapability {
+public class Validator {
 
 
     public boolean validateCat(double userLengthInput, ActionsType actionType){
@@ -38,7 +36,7 @@ public class Validator implements CheckSwimCapability, CheckJumpCapability, Chec
     }
 
 
-    @Override
+
     public boolean checkCatJumpCapability(double jumpHeight) {
         if(jumpHeight < Collections.min(Cat.getRangeJumpHeight())
                 && jumpHeight > Collections.max(Cat.getRangeJumpHeight())){
@@ -50,7 +48,7 @@ public class Validator implements CheckSwimCapability, CheckJumpCapability, Chec
         return true;
     }
 
-    @Override
+
     public boolean checkDogJumpCapability(double jumpHeight) {
         if(jumpHeight < Collections.min(Dog.getRangeJumpHeight())
                 && jumpHeight > Collections.max(Dog.getRangeJumpHeight())){
@@ -62,7 +60,7 @@ public class Validator implements CheckSwimCapability, CheckJumpCapability, Chec
         return true;
     }
 
-    @Override
+
     public boolean checkBirdJumpCapability(double jumpHeight) {
         if(jumpHeight < Collections.min(Bird.getRangeJumpHeight())
                 && jumpHeight > Collections.max(Bird.getRangeJumpHeight())){
@@ -74,7 +72,7 @@ public class Validator implements CheckSwimCapability, CheckJumpCapability, Chec
         return true;
     }
 
-    @Override
+
     public boolean checkCatRunCapability(double runLength) {
         if(runLength > Collections.min(Cat.getRangeRunLength()) &&
                 runLength < Collections.max(Cat.getRangeRunLength())){
@@ -85,7 +83,7 @@ public class Validator implements CheckSwimCapability, CheckJumpCapability, Chec
         return true;
     }
 
-    @Override
+
     public boolean checkDogRunCapability(double runLength) {
         if(runLength > Collections.min(Dog.getRangeRunLength()) &&
                 runLength < Collections.max(Dog.getRangeRunLength())){
@@ -96,7 +94,7 @@ public class Validator implements CheckSwimCapability, CheckJumpCapability, Chec
         return true;
     }
 
-    @Override
+
     public boolean checkBirdRunCapability(double runLength) {
         if(runLength > Collections.min(Bird.getRangeRunLength()) &&
                 runLength < Collections.max(Bird.getRangeRunLength())){
@@ -107,13 +105,13 @@ public class Validator implements CheckSwimCapability, CheckJumpCapability, Chec
         return true;
     }
 
-    @Override
+
     public boolean checkCatSwimCapability() {
         System.out.println("This cat cannot swim");
         return false;
     }
 
-    @Override
+
     public boolean checkDogSwimCapability(double swimLength) {
         if(swimLength > Collections.min(Dog.getRangeSwimLength()) &&
                 swimLength < Collections.max(Dog.getRangeSwimLength())){
@@ -123,7 +121,7 @@ public class Validator implements CheckSwimCapability, CheckJumpCapability, Chec
         return true;
     }
 
-    @Override
+
     public boolean checkBirdSwimCapability(double swimLength) {
 
         if(swimLength > Collections.min(Bird.getRangeSwimLength()) &&
