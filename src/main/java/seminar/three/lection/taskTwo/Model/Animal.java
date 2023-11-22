@@ -10,21 +10,15 @@ public abstract class Animal {
     private final List<Double> maxSwimLength;
     private final List<Double> maxJumpLength;
 
-    private final static List<String> actions;
-
-    static {
-        actions = new ArrayList<>(Arrays.asList(new String[]{"run","jump","swim"}));
-    }
-
     public Animal(List<Double> maxRunLength, List<Double> maxSwimLength, List<Double> maxJumpLength) {
         this.maxRunLength = maxRunLength;
         this.maxSwimLength = maxSwimLength;
         this.maxJumpLength = maxJumpLength;
     }
 
-    public static List<String> getActions(){
-        return actions;
-    }
+    public abstract  boolean canRun(double length);
+    public abstract boolean canSwim(double length);
+    public abstract boolean canJump(double height);
 
 
 }
