@@ -12,9 +12,18 @@ public class Validator implements CheckSwimCapability, CheckJumpCapability, Chec
 
 
     public boolean validateCat(double userLengthInput, ActionsType actionType){
-        if(actionType.equals(ActionsType.Run)) return checkCatRunCapability(userLengthInput);
-        else if(actionType.equals(ActionsType.Jump)) return checkCatJumpCapability(userLengthInput);
-        else return checkCatSwimCapability();
+        StringBuilder stringBuilder = new StringBuilder();
+        try{
+            if(actionType.equals(ActionsType.Run)) return checkCatRunCapability(userLengthInput);
+            else if(actionType.equals(ActionsType.Jump)) return checkCatJumpCapability(userLengthInput);
+            else return checkCatSwimCapability();
+        }catch (UncorrectAcceptDataRange ex){
+
+            stringBuilder.append("\n");
+            stringBuilder.append(ex.getMessage());
+
+        }
+        throw new UncorrectAcceptDataRange(stringBuilder.toString());
     }
 
     public boolean validateDog(double userLengthInput, ActionsType actionType){
