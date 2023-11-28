@@ -1,13 +1,10 @@
 package seminar.three.lection.taskTwo.NewController;
 
-
-
 import seminar.three.lection.taskTwo.Exceptions.UncorrectAcceptDataRange;
 import seminar.three.lection.taskTwo.Interfaces.CheckAnimalCapabilities;
 import seminar.three.lection.taskTwo.Model.ActionsType;
 import seminar.three.lection.taskTwo.Model.Animal;
 
-import java.util.Collections;
 
 public class Validator  {
 
