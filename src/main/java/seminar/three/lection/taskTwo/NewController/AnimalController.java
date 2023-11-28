@@ -15,15 +15,18 @@ public class AnimalController {
         this.validator = new Validator();
     }
 
-    public void validateAnimal(AnimalType animalType, ActionsType actionsType){
+    public void validateAnimal(Animal animal, ActionsType actionsType){
         double userLengthInput = view.getUserInput();
         System.out.println(userLengthInput);
         try{
-            boolean result = validator.validate(userLengthInput,animalType,actionsType);
+            boolean result = validator.validate(userLengthInput,animal,actionsType);
             view.showMessage("Result of check: "+ result);
         }catch(RuntimeException e){
             view.showMessage(e.getMessage());
         }
 
     }
+
+
+
 }

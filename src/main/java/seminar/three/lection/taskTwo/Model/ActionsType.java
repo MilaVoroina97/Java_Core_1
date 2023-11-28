@@ -7,16 +7,13 @@ public enum ActionsType {
     Jump;
 
     public static ActionsType getActionType(int typeId){
-        switch (typeId){
-            case 1:
-                return ActionsType.Jump;
-            case 2:
-                return ActionsType.Swim;
-            case 3:
-                return ActionsType.Run;
-            default:
-                return null;
-        }
+
+        return switch (typeId) {
+            case 1 -> ActionsType.Run;
+            case 2 -> ActionsType.Jump;
+            case 3 -> ActionsType.Swim;
+            default -> null;
+        };
     }
 
 }
