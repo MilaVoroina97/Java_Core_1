@@ -64,6 +64,7 @@ public class Employee {
             e.printStackTrace();
         }
 
+        assert firstDate != null;
         int ret = firstDate.compareTo(secondDate);
         if (ret > 0) {
             System.out.printf("%s is after %s", d1, d2);
