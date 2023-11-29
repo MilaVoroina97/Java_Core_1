@@ -1,18 +1,12 @@
 package seminar.three.lection.taskTwo.NewController;
 
 import seminar.three.lection.taskTwo.Exceptions.UncorrectAcceptDataRange;
-import seminar.three.lection.taskTwo.Interfaces.CheckAnimalCapabilities;
 import seminar.three.lection.taskTwo.Model.ActionsType;
 import seminar.three.lection.taskTwo.Model.Animal;
 
 
 public class Validator  {
 
-    private CheckAnimalCapabilities checkAnimalCapabilities;
-
-    public boolean validator(double distance){
-        return checkAnimalCapabilities.checkJumpCapabilities(distance);
-    }
     public boolean validate(double distance, Animal animal, ActionsType actionsType) {
         try {
             return switch (actionsType) {

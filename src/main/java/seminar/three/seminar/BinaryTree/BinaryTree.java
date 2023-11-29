@@ -36,8 +36,13 @@ public class BinaryTree {
             return true;
         }
         // рекурсивно проверяем, существует ли `x` или `y` в левом поддереве
-
-
-        return false;
+        boolean left = findLCA(root.left,lca,n1,n2);
+        // рекурсивно проверяем, существует ли `x` или `y` в правом поддереве
+        boolean right = findLCA(root.right,lca,n1,n2);
+        // если `x` найдено в одном поддереве, а `y` найдено в другом поддереве,
+        // обновить lca до текущего узла
+        if(left && right) lca.node = root;
+        // вернуть true, если `x` или `y` найдены либо в левом, либо в правом поддереве
+        return left || right;
     }
 }

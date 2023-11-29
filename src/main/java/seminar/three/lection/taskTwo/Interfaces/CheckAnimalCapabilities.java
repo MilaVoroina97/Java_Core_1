@@ -1,8 +1,7 @@
 package seminar.three.lection.taskTwo.Interfaces;
 
-public interface CheckAnimalCapabilities {
+import seminar.three.lection.taskTwo.Model.Animal;
 
-    public boolean checkRunCapabilities(double length);
-    public boolean checkSwimCapabilities(double length);
-    public boolean checkJumpCapabilities(double height);
+public interface CheckAnimalCapabilities extends CheckJumpCapabilities,CheckSwimCapabilities,CheckRunCapabilities{
+
 }

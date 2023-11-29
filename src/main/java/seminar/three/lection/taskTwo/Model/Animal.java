@@ -34,9 +34,13 @@ public abstract class Animal {
         return canDo(height, maxJumpHeight);
     }
 
-    private boolean canDo(double length, List<Double> range){
+    public boolean canDo(double length, List<Double> range){
         return length > Collections.min(range) && length < Collections.max(range);
     }
+
+
+
+
 
 
 }
