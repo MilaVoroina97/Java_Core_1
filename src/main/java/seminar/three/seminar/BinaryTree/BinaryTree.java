@@ -45,4 +45,56 @@ public class BinaryTree {
         // вернуть true, если `x` или `y` найдены либо в левом, либо в правом поддереве
         return left || right;
     }
+
+    // Функция для поиска наименьшего общего предка узлов `x` и `y`
+    public static void findLCA(Node root, Node n1, Node n2){
+
+        // `lca` хранит самого младшего общего предка
+        Node lca = null;
+        // Обернуть узел `lca`, чтобы его ссылку можно было изменить внутри
+        // метод `findLCA()`
+        NodeWrapper LCA = new NodeWrapper(lca);
+        // вызываем LCA-процедуру, только если в дереве присутствуют и `x`, и `y`
+        if(isPresentNode(root,n2) && (isPresentNode(root,n1))){
+            findLCA(root,LCA,n1,n2);
+            lca = LCA.node;
+        }
+
+        // если LCA существует, вывести его
+        if (lca != null) {
+            System.out.println("LCA is " + lca.data);
+        }
+        else {
+            System.out.println("LCA does not exist");
+        }
+
+    }
+    public static void main(String[] args)
+    {
+        /* Построим следующее дерево
+              1
+            /   \
+           /     \
+          2       3
+           \     / \
+            4   5   6
+               / \
+              7   8
+        */
+
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.right = new Node(4);
+        root.right.left = new Node(5);
+        root.right.right = new Node(6);
+        root.right.left.left = new Node(7);
+        root.right.left.right = new Node(8);
+
+        findLCA(root, root.right.left.left, root.right.right);
+        findLCA(root, root.right.left.left, new Node(10));
+        findLCA(root, root.right.left.left, root.right.left.left);
+        findLCA(root, root.right.left.left, root.right.left);
+        findLCA(root, root.left, root.right.left);
+    }
 }

@@ -20,6 +20,18 @@ public class TreeNode {
 
         int firstDepth = getDepth(first);
         int secondDepth = getDepth(second);
+        while (firstDepth > secondDepth){
+            first = first.parent;
+            firstDepth--;
+        }
+        while (firstDepth < secondDepth){
+            second = second.parent;
+            secondDepth--;
+        }
+        while (first != second){
+            first = first.parent;
+            second = second.parent;
+        }
         return null;
     }
 

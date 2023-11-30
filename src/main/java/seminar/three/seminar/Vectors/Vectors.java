@@ -1,8 +1,6 @@
 package seminar.three.seminar.Vectors;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 
 /**
@@ -13,10 +11,26 @@ public class Vectors {
 
     public static List<Integer> countCommonNumbers(List<Integer> list1, List<Integer> list2) {
 
-        List<Integer> list = new ArrayList<>();
+        List<Integer> resultList = new ArrayList<>();
+        int resultCount = 0;
+        Set<Integer> set1 = new HashSet<>();
+        Set<Integer> set2= new HashSet<>();
+        for(int i = 0; i < list1.size(); i++){
+            int n1 = list1.get(i);
+            int n2 = list2.get(i);
+            if(!set1.contains(n1)){
+                set1.add(n1);
+                if(set2.contains(n1)) ++resultCount;
+            }if(!set2.contains(n2)){
+                set2.add(n2);
+                if(set1.contains(n2)) ++ resultCount;
+            }
+
+            resultList.add(resultCount);
+        }
 
 
-        return null;
+        return resultList;
     }
 
     public static void main(String[] args) {
