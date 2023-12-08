@@ -3,11 +3,8 @@ package seminar.four.seminarTasks.taskOne.Controller;
 import homework.four.task1.WrongLoginException;
 import seminar.four.seminarTasks.taskOne.Interfaces.CheckLogin;
 import seminar.four.seminarTasks.taskOne.Model.AbstractClasses.AbstractCreator;
-import seminar.four.seminarTasks.taskOne.Model.AuthenticationClasses.Login;
-
-import java.io.BufferedReader;
+import seminar.four.seminarTasks.taskOne.Model.AbstractClasses.AbstractLogin;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
 
@@ -20,7 +17,7 @@ public class LoginValidator extends Validator implements CheckLogin {
     @Override
     public boolean checkLogin() throws WrongLoginException, IOException {
 
-        Login login = abstractCreator.createLogin();
+        AbstractLogin login = abstractCreator.createLogin();
         if(login.getLogin().length() >= 20)
             throw new WrongLoginException(" Превышение длины логина.");
         CharacterIterator iterator = new StringCharacterIterator(login.getLogin());
@@ -32,6 +29,6 @@ public class LoginValidator extends Validator implements CheckLogin {
             }
             iterator.next();
         }
-        return false;
+        return true;
     }
 }

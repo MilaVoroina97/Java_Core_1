@@ -18,10 +18,10 @@ public class ParamCreator extends AbstractParams {
     @Override
     public String getLogin(String type) throws IOException {
         try {
-            System.out.println("Please enter your" + type + ": " );
+            System.out.println("Please enter your " + type + ": " );
             return reader.readLine();
         }catch (IOException ex){
-            System.out.println("Something went wrong with" + type + "please, try again");
+            System.out.println("Something went wrong with " + type + " please, try again");
             reader.readLine();
         }
         return null;
@@ -30,10 +30,10 @@ public class ParamCreator extends AbstractParams {
     @Override
     public String getPassword(String type) throws IOException {
         try {
-            System.out.println("Please enter your" + type + ": ");
+            System.out.println("Please enter your " + type + ": ");
             return reader.readLine();
         }catch (IOException ex){
-            System.out.println("Something went wrong with" + type + "please, try again");
+            System.out.println("Something went wrong with " + type + "please, try again");
             reader.readLine();
         }
         return null;
