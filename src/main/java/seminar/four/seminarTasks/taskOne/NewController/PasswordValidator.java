@@ -15,8 +15,8 @@ public class PasswordValidator extends AbstractPasswordValidator{
     @Override
     public boolean checkPassword() throws WrongPasswordException, IOException {
         AbstractPassword password = abstractCreator.createPassword();
-        AbstractPassword confirmPassword = abstractCreator.createPassword();
-        if (!password.getPassword().equals(confirmPassword.getPassword()))
+        AbstractPassword confirmPassword = abstractCreator.createConfirmPassword();
+        if (!password.equals(confirmPassword))
             throw new WrongPasswordException("Пароли не совпадают.");
         if (password.getPassword().length() >= 20)
             throw new WrongPasswordException("Превышение длины логина.");
