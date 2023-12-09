@@ -2,7 +2,7 @@ package seminar.four.seminarTasks.taskOne.Viewer;
 
 import homework.four.task1.WrongLoginException;
 import homework.four.task1.WrongPasswordException;
-import seminar.four.seminarTasks.taskOne.Controller.Creator;
+import seminar.four.seminarTasks.taskOne.NewController.Creator;
 import seminar.four.seminarTasks.taskOne.NewController.AbstractLoginValidator;
 import seminar.four.seminarTasks.taskOne.NewController.AbstractPasswordValidator;
 import seminar.four.seminarTasks.taskOne.NewController.LoginValidator;
