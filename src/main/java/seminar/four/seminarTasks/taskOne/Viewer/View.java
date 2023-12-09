@@ -3,8 +3,10 @@ package seminar.four.seminarTasks.taskOne.Viewer;
 import homework.four.task1.WrongLoginException;
 import homework.four.task1.WrongPasswordException;
 import seminar.four.seminarTasks.taskOne.Controller.Creator;
-import seminar.four.seminarTasks.taskOne.Controller.LoginValidator;
-import seminar.four.seminarTasks.taskOne.Controller.PasswordValidator;
+import seminar.four.seminarTasks.taskOne.NewController.AbstractLoginValidator;
+import seminar.four.seminarTasks.taskOne.NewController.AbstractPasswordValidator;
+import seminar.four.seminarTasks.taskOne.NewController.LoginValidator;
+import seminar.four.seminarTasks.taskOne.NewController.PasswordValidator;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,8 +14,8 @@ import java.io.InputStreamReader;
 
 public class View {
 
-    private static PasswordValidator passwordValidator = new PasswordValidator(new Creator(new ParamCreator(null)));
-    private static LoginValidator loginValidator = new LoginValidator(new Creator(new ParamCreator(null)));
+    private  static AbstractPasswordValidator passwordValidator = new PasswordValidator(new Creator(new ParamCreator(null)));
+    private static AbstractLoginValidator loginValidator = new LoginValidator(new Creator(new ParamCreator(null)));
     private static final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     private  static boolean working = true;
 
@@ -35,7 +37,7 @@ public class View {
 
     }
 
-    private static void checkPasswords() throws IOException, WrongPasswordException {
+    private  static void checkPasswords() throws IOException, WrongPasswordException {
 
         try {
             boolean result = passwordValidator.checkPassword();

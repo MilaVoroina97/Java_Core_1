@@ -1,19 +1,15 @@
-package seminar.four.seminarTasks.taskOne.Controller;
-
+package seminar.four.seminarTasks.taskOne.NewController;
 
 import homework.four.task1.WrongPasswordException;
-import seminar.four.seminarTasks.taskOne.Interfaces.CheckPassword;
 import seminar.four.seminarTasks.taskOne.Model.AbstractClasses.AbstractCreator;
 import seminar.four.seminarTasks.taskOne.Model.AbstractClasses.AbstractPassword;
 
 import java.io.IOException;
 
-public class PasswordValidator extends Validator implements CheckPassword {
+public class PasswordValidator extends AbstractPasswordValidator{
 
-    public PasswordValidator(AbstractCreator creator) {
-
+    public PasswordValidator(AbstractCreator creator){
         this.abstractCreator = creator;
-
     }
 
     @Override
