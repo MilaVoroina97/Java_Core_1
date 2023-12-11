@@ -2,6 +2,9 @@ package seminar.four.seminarTasks.taskOne.Viewer;
 
 import homework.four.task1.WrongLoginException;
 import homework.four.task1.WrongPasswordException;
+import seminar.four.seminarTasks.taskOne.Interfaces.CheckLogin;
+import seminar.four.seminarTasks.taskOne.Interfaces.CheckPassword;
+import seminar.four.seminarTasks.taskOne.Model.AuthenticationClasses.ConfirmPassword;
 import seminar.four.seminarTasks.taskOne.NewController.Creator;
 import seminar.four.seminarTasks.taskOne.NewController.AbstractLoginValidator;
 import seminar.four.seminarTasks.taskOne.NewController.AbstractPasswordValidator;
@@ -14,8 +17,8 @@ import java.io.InputStreamReader;
 
 public class View {
 
-    private  static AbstractPasswordValidator passwordValidator = new PasswordValidator(new Creator(new ParamCreator(null)));
-    private static AbstractLoginValidator loginValidator = new LoginValidator(new Creator(new ParamCreator(null)));
+    private  static CheckPassword passwordValidator = new PasswordValidator(new Creator(new ParamCreator(null)));
+    private static CheckLogin loginValidator = new LoginValidator(new Creator(new ParamCreator(null)));
     private static final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     private  static boolean working = true;
 
