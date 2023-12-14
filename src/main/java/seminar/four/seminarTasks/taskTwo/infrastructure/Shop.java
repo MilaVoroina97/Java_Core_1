@@ -1,39 +1,50 @@
 package seminar.four.seminarTasks.taskTwo.infrastructure;
 
-import seminar.four.seminarTasks.taskTwo.exception.NoExistCostumerException;
+
+import seminar.four.seminarTasks.taskTwo.exception.NegativeAmountException;
+import seminar.four.seminarTasks.taskTwo.exception.NoExistCustomerException;
 import seminar.four.seminarTasks.taskTwo.exception.NoExistProductException;
 import seminar.four.seminarTasks.taskTwo.model.abstractClasses.AbstractShop;
-import seminar.four.seminarTasks.taskTwo.model.abstractClasses.AbstractShopCreator;
-import seminar.four.seminarTasks.taskTwo.model.abstractClasses.AbstractShopManager;
 import seminar.four.seminarTasks.taskTwo.model.shopClasses.Customer;
 import seminar.four.seminarTasks.taskTwo.model.shopClasses.Order;
 import seminar.four.seminarTasks.taskTwo.model.shopClasses.Product;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Shop extends AbstractShop {
 
-
-    public Shop(AbstractShopManager shopManager, AbstractShopCreator creator){
-        this.shopManager = shopManager;
-        this.shopCreator = creator;
+    public Shop(ShopAdder shopAdder){
+        this.shopAdder = shopAdder;
         this.reader = new BufferedReader(new InputStreamReader(System.in));
     }
+
     @Override
-    public Customer findCustomer(Customer customer) throws NoExistCostumerException {
+    public Order makePurchase(String findCustomerSecondName, String findProductName) throws NoExistCustomerException, NoExistProductException, NegativeAmountException, IOException {
 
-
-        return null;
+        Customer customer = shopAdder.findCustomer(findCustomerSecondName);
+        if(customer == null)
+            throw new NoExistCustomerException("There is not such customer in this shop");
+        Product product = shopAdder.findProduct(findProductName);
+        if(product == null)
+            throw new NoExistProductException("There is not such product in this shop");
+        int amount = getAmount();
+        return new Order(customer,product,amount);
     }
 
-    @Override
-    public Product findProduct(Product product) throws NoExistProductException {
-        return null;
-    }
+    private int getAmount() throws IOException, NegativeAmountException {
 
-    @Override
-    public Order makePurchase() {
-        return null;
+        int result = 0;
+        System.out.println("Enter the necessary amount: ");
+        try {
+            result = Integer.parseInt(reader.readLine());
+            if(result < 0)
+                throw new NegativeAmountException("(\"The amount must be more than zero");
+        }catch (IOException ex){
+            System.out.println("Input error");
+        }
+
+        return result;
     }
 }

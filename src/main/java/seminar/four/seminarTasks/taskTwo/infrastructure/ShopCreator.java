@@ -1,6 +1,5 @@
 package seminar.four.seminarTasks.taskTwo.infrastructure;
 
-import seminar.four.seminarTasks.taskOne.Model.AbstractClasses.AbstractCreator;
 import seminar.four.seminarTasks.taskTwo.model.abstractClasses.AbstractShopCreator;
 import seminar.four.seminarTasks.taskTwo.model.abstractClasses.AbstractShopParams;
 import seminar.four.seminarTasks.taskTwo.model.shopClasses.Customer;
@@ -24,4 +23,5 @@ public class ShopCreator extends AbstractShopCreator {
     public Product createProduct() throws IOException {
         return new Product(this.shopParams.getName("product"),this.shopParams.getPrice("product"));
     }
+
 }

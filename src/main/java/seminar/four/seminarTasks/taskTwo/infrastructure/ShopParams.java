@@ -27,6 +27,7 @@ public class ShopParams extends AbstractShopParams {
     public String getLastName(String type) throws IOException {
         System.out.printf("Enter %s customer lastname.\n", type);
         return reader.readLine();
+
     }
 
     @Override

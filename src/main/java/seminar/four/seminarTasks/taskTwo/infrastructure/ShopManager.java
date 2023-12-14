@@ -1,74 +1,70 @@
 package seminar.four.seminarTasks.taskTwo.infrastructure;
 
-import seminar.four.seminarTasks.taskTwo.exception.CannotAddCustomerException;
-import seminar.four.seminarTasks.taskTwo.exception.CannotAddProductException;
+import seminar.four.seminarTasks.taskTwo.exception.CannotAddShopItemException;
 import seminar.four.seminarTasks.taskTwo.model.abstractClasses.AbstractShopManager;
 import seminar.four.seminarTasks.taskTwo.model.shopClasses.Customer;
 import seminar.four.seminarTasks.taskTwo.model.shopClasses.Product;
 
 public class ShopManager extends AbstractShopManager {
 
-
-    private Product[] products;
     private Customer[] customers;
+    private Product[] products;
 
     public ShopManager(){
-        this.customers = new Customer[10];
-        this.products = new Product[10];
+        this.customers = new Customer[15];
+        this.products = new Product[15];
     }
 
     @Override
-    public boolean addCustomer(Customer customer, int index) throws CannotAddCustomerException {
+    public boolean addCustomer(Customer customer, int index) throws CannotAddShopItemException {
 
         boolean result = false;
         if(index < 0) index = 0;
         int size = (this.customers.length - 1 >= index) ? this.customers.length + 1 : index + 1;
         Customer[] tmp = new Customer[size];
-        for(int i = 0; i < tmp.length; i ++) {
-            if (i < index)
+        for(int i = 0; i < tmp.length; i++){
+            if(i < index)
                 tmp[i] = this.customers[i];
             else if(i == index){
-
                 tmp[i] = customer;
                 result = true;
-            }
-            else
+            }else
                 tmp[i] = this.customers[i - 1];
-
-            }
+        }
+        if(!result) throw new CannotAddShopItemException("Cannot add this customer");
 
         this.customers = tmp;
         return result;
     }
 
     @Override
-    public boolean addProduct(Product product, int index) throws CannotAddProductException {
+    public Customer[] getAllCustomers() {
+        return customers;
+    }
+
+    @Override
+    public boolean addProduct(Product product, int index) throws CannotAddShopItemException {
         boolean result = false;
         if(index < 0) index = 0;
         int size = (this.products.length - 1 >= index) ? this.products.length + 1 : index + 1;
         Product[] tmp = new Product[size];
-        for(int i = 0; i < tmp.length; i ++) {
-            if (i < index)
+        for(int i = 0; i < tmp.length; i++){
+            if(i < index)
                 tmp[i] = this.products[i];
             else if(i == index){
-
                 tmp[i] = product;
                 result = true;
-            }
-            else
+            }else
                 tmp[i] = this.products[i - 1];
-
         }
+        if(!result) throw new CannotAddShopItemException("Cannot add this customer");
 
         this.products = tmp;
         return result;
     }
 
-    public boolean addProduct(Product product){
-        return this.addProduct(product,0);
-    }
-
-    public boolean addCustomer(Customer customer){
-        return this.addCustomer(customer,0);
+    @Override
+    public Product[] getAllProducts() {
+        return products;
     }
 }

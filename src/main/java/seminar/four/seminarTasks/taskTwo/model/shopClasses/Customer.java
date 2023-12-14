@@ -1,23 +1,29 @@
 package seminar.four.seminarTasks.taskTwo.model.shopClasses;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import seminar.four.seminarTasks.taskTwo.model.abstractClasses.ShopItem;
 
-@AllArgsConstructor
 @Setter
 @Getter
 @ToString
-public class Customer {
+public class Customer extends ShopItem {
 
-    private String firstName;
     private String secondName;
     private String phoneNumber;
 
     public Customer(String firstName, String secondName, String phoneNumber) {
-        this.firstName = firstName;
+        super(firstName);
         this.secondName = secondName;
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 }
