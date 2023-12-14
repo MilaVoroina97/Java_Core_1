@@ -38,17 +38,26 @@ public class ShopAdder extends AbstractShopAdder {
     public Customer findCustomer(String findCustomerSecondName) throws NoExistCustomerException {
 
 
-        for(Customer c : this.shopManager.getAllCustomers()){
-            if(c.getSecondName().equals(findCustomerSecondName)) return c;
+        for(Customer c : this.shopManager.getAllCustomers())
+            if(c != null){
+                if (c.getSecondName().equals(findCustomerSecondName)){
+                    System.out.println("Find");
+                    return c;
+                }
+            }
 
-        }
         return null;
     }
 
     @Override
     public Product findProduct(String findProductName) throws NoExistProductException {
         for(Product p : this.shopManager.getAllProducts()){
-            if(p.getName().equals(findProductName)) return p;
+            if(p != null){
+                if(p.getName().equals(findProductName)){
+                    System.out.println("Find");
+                    return p;
+                }
+            }
         }
         return null;
     }

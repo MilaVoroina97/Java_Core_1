@@ -1,20 +1,15 @@
 package seminar.four.seminarTasks.taskTwo.model.shopClasses;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 import seminar.four.seminarTasks.taskTwo.model.abstractClasses.ShopItem;
 
-@Setter
-@Getter
-@ToString
-public class Customer extends ShopItem {
+public class Customer {
 
+    private String name;
     private String secondName;
     private String phoneNumber;
 
     public Customer(String firstName, String secondName, String phoneNumber) {
-        super(firstName);
+        this.name = firstName;
         this.secondName = secondName;
         this.phoneNumber = phoneNumber;
     }
@@ -23,7 +18,12 @@ public class Customer extends ShopItem {
         return secondName;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    @Override
+    public String toString() {
+        return "Customer {" +
+                "name = '" + name + '\'' +
+                ", second Name = " +secondName +
+                ", phone number = '" + phoneNumber + '\'' +
+                '}';
     }
 }

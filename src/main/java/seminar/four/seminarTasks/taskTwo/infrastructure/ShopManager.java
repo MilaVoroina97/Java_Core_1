@@ -16,7 +16,7 @@ public class ShopManager extends AbstractShopManager {
     }
 
     @Override
-    public boolean addCustomer(Customer customer, int index) throws CannotAddShopItemException {
+    public void addCustomer(Customer customer, int index) throws CannotAddShopItemException {
 
         boolean result = false;
         if(index < 0) index = 0;
@@ -34,16 +34,16 @@ public class ShopManager extends AbstractShopManager {
         if(!result) throw new CannotAddShopItemException("Cannot add this customer");
 
         this.customers = tmp;
-        return result;
+        System.out.println("Customer was successfully added");
     }
 
     @Override
     public Customer[] getAllCustomers() {
-        return customers;
+        return this.customers;
     }
 
     @Override
-    public boolean addProduct(Product product, int index) throws CannotAddShopItemException {
+    public void addProduct(Product product, int index) throws CannotAddShopItemException {
         boolean result = false;
         if(index < 0) index = 0;
         int size = (this.products.length - 1 >= index) ? this.products.length + 1 : index + 1;
@@ -60,11 +60,11 @@ public class ShopManager extends AbstractShopManager {
         if(!result) throw new CannotAddShopItemException("Cannot add this customer");
 
         this.products = tmp;
-        return result;
+        System.out.println("Product was successfully added");
     }
 
     @Override
     public Product[] getAllProducts() {
-        return products;
+        return this.products;
     }
 }

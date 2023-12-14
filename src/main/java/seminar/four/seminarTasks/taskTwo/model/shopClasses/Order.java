@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@AllArgsConstructor
+
 @Setter
 @Getter
 @ToString
@@ -20,6 +20,15 @@ public class Order {
         this.customer = customer;
         this.product = product;
         this.amount = amount;
+    }
+
+    @Override
+    public String toString() {
+        return "Order {" +
+                "customer = '" + customer.toString() + '\'' +
+                ", product = " +product.toString() +
+                ", amount = '" + amount + '\'' +
+                '}';
     }
 
 }

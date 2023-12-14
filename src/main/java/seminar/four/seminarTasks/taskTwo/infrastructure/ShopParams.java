@@ -25,26 +25,26 @@ public class ShopParams extends AbstractShopParams {
 
     @Override
     public String getLastName(String type) throws IOException {
-        System.out.printf("Enter %s customer lastname.\n", type);
+        System.out.printf("Enter %s lastname.\n", type);
         return reader.readLine();
 
     }
 
     @Override
     public String getName(String type) throws IOException {
-        System.out.printf("Enter %s customer name.\n", type);
+        System.out.printf("Enter %s  name.\n", type);
         return reader.readLine();
     }
 
     @Override
     public String getPhoneNumber(String type) throws IOException {
-        System.out.printf("Enter %s customer phone number.\n", type);
+        System.out.printf("Enter %s phone number.\n", type);
         return reader.readLine();
     }
 
     @Override
     public double getPrice(String type) throws IOException {
-        System.out.println("Enter the necessary amount: ");
+        System.out.println("Enter the price: ");
         boolean isTrue = false;
         double price = 0;
         while (!isTrue){

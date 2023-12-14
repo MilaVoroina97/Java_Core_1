@@ -21,7 +21,7 @@ public class Shop extends AbstractShop {
     }
 
     @Override
-    public Order makePurchase(String findCustomerSecondName, String findProductName) throws NoExistCustomerException, NoExistProductException, NegativeAmountException, IOException {
+    public Order makePurchase(String findCustomerSecondName, String findProductName) throws NoExistCustomerException, NoExistProductException, IOException, NegativeAmountException {
 
         Customer customer = shopAdder.findCustomer(findCustomerSecondName);
         if(customer == null)
