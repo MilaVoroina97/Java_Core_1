@@ -1,12 +1,13 @@
 package seminar.four.seminarTasks.taskTwo.model.abstractClasses;
 
+import seminar.four.seminarTasks.taskTwo.interfaces.shop.MakePurchase;
 import seminar.four.seminarTasks.taskTwo.interfaces.shopAdder.AddShopItemManager;
 import seminar.four.seminarTasks.taskTwo.interfaces.shopAdder.FindCustomer;
 import seminar.four.seminarTasks.taskTwo.interfaces.shopAdder.FindProduct;
 
 import java.io.BufferedReader;
 
-public abstract class AbstractShopAdder implements AddShopItemManager, FindProduct, FindCustomer {
+public abstract class AbstractShopAdder implements AddShopItemManager, FindProduct, FindCustomer, MakePurchase {
 
     protected AbstractShopManager shopManager;
     protected AbstractShopCreator shopCreator;

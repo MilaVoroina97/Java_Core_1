@@ -13,7 +13,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ *  ЭТОТ КЛАСС БОЛЕЕ НЕ ИСПОЛЬЗУЕТСЯ
+ */
+
 public class Shop extends AbstractShop {
+
 
     public Shop(ShopAdder shopAdder){
         this.shopAdder = shopAdder;
@@ -23,15 +28,16 @@ public class Shop extends AbstractShop {
     @Override
     public Order makePurchase(String findCustomerSecondName, String findProductName) throws NoExistCustomerException, NoExistProductException, IOException, NegativeAmountException {
 
-        Customer customer = shopAdder.findCustomer(findCustomerSecondName);
+        Customer customer = this.shopAdder.findCustomer(findCustomerSecondName);
         if(customer == null)
             throw new NoExistCustomerException("There is not such customer in this shop");
-        Product product = shopAdder.findProduct(findProductName);
+        Product product = this.shopAdder.findProduct(findProductName);
         if(product == null)
             throw new NoExistProductException("There is not such product in this shop");
         int amount = getAmount();
         return new Order(customer,product,amount);
     }
+
 
     private int getAmount() throws IOException, NegativeAmountException {
 
