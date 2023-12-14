@@ -45,29 +45,27 @@ public class NewMenu {
         System.out.println("Find shop item in the shop, press 2");
         System.out.println("Make an order, press 3");
         System.out.println("Exit from the shop, press 0");
-        int result = 0;
+
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
-            while ((result = Integer.parseInt(reader.readLine())) != 0){
-                result = Integer.parseInt(reader.readLine());
-            }
+            return Integer.parseInt(reader.readLine());
         }catch (IOException ex){
 
             System.out.println(ex.getMessage());
         }
-        return result;
+        return 0;
     }
 
     private void addShopItemMenu() throws IOException{
         System.out.println("For adding a customer press 1");
         System.out.println("For adding a product press 2");
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
-            while (reader.readLine() != null){
+
                 switch (Integer.parseInt(reader.readLine())){
                     case (1) -> shopAdder.addShopItem("Customer");
                     case (2) -> shopAdder.addShopItem("Product");
                     default -> System.out.println("There is not such option, please,try again");
                 }
-            }
+
         }catch (IOException ex){
 
             System.out.println(ex.getMessage());
@@ -79,13 +77,13 @@ public class NewMenu {
         System.out.println("For finding a customer press 1");
         System.out.println("For finding a product press 2");
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            while (reader.readLine() != null) {
+
                 switch (Integer.parseInt(reader.readLine())) {
                     case (1) -> System.out.println(shopAdder.findCustomer(view.getCustomerToFind()));
                     case (2) -> System.out.println(shopAdder.findProduct(view.getProductToFind()));
                     default -> System.out.println("There is not such option, please,try again");
                 }
-            }
+
         } catch (IOException ex) {
 
             System.out.println(ex.getMessage());
