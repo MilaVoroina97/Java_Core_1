@@ -1,8 +1,6 @@
 package seminar.four.seminarTasks.taskTwo.userInterface;
 
-import seminar.four.seminarTasks.taskTwo.exception.NegativeAmountException;
-import seminar.four.seminarTasks.taskTwo.exception.NoExistCustomerException;
-import seminar.four.seminarTasks.taskTwo.exception.NoExistProductException;
+import seminar.four.seminarTasks.taskTwo.exception.*;
 import seminar.four.seminarTasks.taskTwo.infrastructure.*;
 import seminar.four.seminarTasks.taskTwo.model.abstractClasses.AbstractShop;
 import seminar.four.seminarTasks.taskTwo.model.abstractClasses.AbstractShopAdder;
@@ -30,7 +28,7 @@ public class Menu {
         this.reader =  new BufferedReader(new InputStreamReader(System.in));
     }
 
-    public void start() throws IOException, NegativeAmountException, NoExistProductException, NoExistCustomerException {
+    public void start() throws IOException, NegativeAmountException, NoExistShopItemException {
         boolean working = true;
         while (working){
             int operation = menu();
@@ -77,11 +75,17 @@ public class Menu {
     private void addShopItemMenu() throws IOException{
         System.out.println("For adding a customer press 1");
         System.out.println("For adding a product press 2");
-        switch (Integer.parseInt(reader.readLine())){
-            case (1) -> shopAdder.addShopItem("Customer");
-            case (2) -> shopAdder.addShopItem("Product");
-            default -> System.out.println("There is not such option, please,try again");
+        try{
+            switch (Integer.parseInt(reader.readLine())){
+                case (1) -> shopAdder.addShopItem("Customer");
+                case (2) -> shopAdder.addShopItem("Product");
+                default -> System.out.println("There is not such option, please,try again");
+            }
+        }catch (IOException | CannotAddShopItemException ex){
+
+            System.out.println(ex.getMessage());
         }
+
     }
 
 
@@ -103,21 +107,31 @@ public class Menu {
 //        }
 //
 //    }
-private void findShopItemMenu() throws IOException, NoExistCustomerException, NoExistProductException {
+private void findShopItemMenu() throws IOException, NoExistShopItemException {
 
         System.out.println("For finding a customer press 1");
         System.out.println("For finding a product press 2");
 
-        switch (Integer.parseInt(reader.readLine())){
-            case (1) -> System.out.println(shopAdder.findCustomer(view.getCustomerToFind()));
-            case (2) -> System.out.println(shopAdder.findProduct(view.getProductToFind()));
-            default -> System.out.println("There is not such option, please,try again");
+        try {
+            switch (Integer.parseInt(reader.readLine())){
+                case (1) -> System.out.println(shopAdder.findCustomer(view.getCustomerToFind()));
+                case (2) -> System.out.println(shopAdder.findProduct(view.getProductToFind()));
+                default -> System.out.println("There is not such option, please,try again");
+            }
+        }catch (IOException | NoExistShopItemException ex){
+            System.out.println(ex.getMessage() );
         }
     }
 
-    private void makePurchaseMenu() throws IOException, NegativeAmountException, NoExistProductException, NoExistCustomerException {
+    private void makePurchaseMenu() throws IOException, NegativeAmountException, NoExistShopItemException {
 
-        System.out.println("Your order is: " + shopAdder.makePurchase(view.getCustomerToFind(), view.getProductToFind()));
+        try {
+            System.out.println("Your order is: " + shopAdder.makePurchase(view.getCustomerToFind(), view.getProductToFind()));
+        }catch (IOException | NegativeAmountException | NoExistShopItemException ex){
+            System.out.println(ex.getMessage());
+        }
+
+
     }
 
 }

@@ -3,6 +3,7 @@ package seminar.four.seminarTasks.taskTwo.userInterface;
 import seminar.four.seminarTasks.taskTwo.exception.NegativeAmountException;
 import seminar.four.seminarTasks.taskTwo.exception.NoExistCustomerException;
 import seminar.four.seminarTasks.taskTwo.exception.NoExistProductException;
+import seminar.four.seminarTasks.taskTwo.exception.NoExistShopItemException;
 import seminar.four.seminarTasks.taskTwo.infrastructure.ShopAdder;
 import seminar.four.seminarTasks.taskTwo.infrastructure.ShopCreator;
 import seminar.four.seminarTasks.taskTwo.infrastructure.ShopManager;
@@ -23,7 +24,7 @@ public class NewMenu {
         this.view = new ConsoleView();
     }
 
-    public void start() throws IOException, NegativeAmountException, NoExistProductException, NoExistCustomerException {
+    public void start() throws IOException, NegativeAmountException, NoExistShopItemException {
         boolean working = true;
         while (working){
             int operation = menu();
@@ -90,7 +91,7 @@ public class NewMenu {
         }
     }
 
-    private void makePurchaseMenu() throws IOException, NegativeAmountException, NoExistProductException, NoExistCustomerException {
+    private void makePurchaseMenu() throws IOException, NegativeAmountException, NoExistShopItemException {
 
         System.out.println("Your order is: " + shopAdder.makePurchase(view.getCustomerToFind(), view.getProductToFind()));
     }

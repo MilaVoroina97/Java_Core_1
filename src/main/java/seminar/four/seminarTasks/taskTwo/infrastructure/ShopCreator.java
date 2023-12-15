@@ -1,5 +1,6 @@
 package seminar.four.seminarTasks.taskTwo.infrastructure;
 
+import seminar.four.seminarTasks.taskTwo.exception.NegativeAmountException;
 import seminar.four.seminarTasks.taskTwo.model.abstractClasses.AbstractShopCreator;
 import seminar.four.seminarTasks.taskTwo.model.abstractClasses.AbstractShopParams;
 import seminar.four.seminarTasks.taskTwo.model.shopClasses.Customer;
@@ -24,4 +25,9 @@ public class ShopCreator extends AbstractShopCreator {
         return new Product(this.shopParams.getName("product"),this.shopParams.getPrice("product"));
     }
 
+
+    @Override
+    public int getAmount(String type) throws IOException, NegativeAmountException {
+        return this.shopParams.getAmount(type);
+    }
 }
