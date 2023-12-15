@@ -81,9 +81,11 @@ public class Menu {
                 case (2) -> shopAdder.addShopItem("Product");
                 default -> System.out.println("There is not such option, please,try again");
             }
-        }catch (IOException | CannotAddShopItemException ex){
+        }catch (IOException ex){
 
             System.out.println(ex.getMessage());
+        }catch (CannotAddShopItemException exception){
+            throw new RuntimeException(exception);
         }
 
     }

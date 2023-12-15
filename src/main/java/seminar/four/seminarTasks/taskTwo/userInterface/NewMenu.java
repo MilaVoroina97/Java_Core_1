@@ -19,9 +19,12 @@ public class NewMenu {
     private  final AbstractShopAdder shopAdder;
     private final View view;
 
+    int userInput;
+
     public NewMenu() {
         this.shopAdder = new ShopAdder(new ShopCreator(new ShopParams(null)),new ShopManager());
         this.view = new ConsoleView();
+        this.userInput = 0;
     }
 
     public void start() throws IOException, NegativeAmountException, NoExistShopItemException {
@@ -46,26 +49,29 @@ public class NewMenu {
         System.out.println("Find shop item in the shop, press 2");
         System.out.println("Make an order, press 3");
         System.out.println("Exit from the shop, press 0");
-
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
-            return Integer.parseInt(reader.readLine());
+            while (reader.readLine() != null){
+                userInput = Integer.parseInt(reader.readLine());
+            }
         }catch (IOException ex){
 
             System.out.println(ex.getMessage());
         }
-        return 0;
+        return userInput;
     }
 
     private void addShopItemMenu() throws IOException{
         System.out.println("For adding a customer press 1");
         System.out.println("For adding a product press 2");
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
-
-                switch (Integer.parseInt(reader.readLine())){
-                    case (1) -> shopAdder.addShopItem("Customer");
-                    case (2) -> shopAdder.addShopItem("Product");
-                    default -> System.out.println("There is not such option, please,try again");
-                }
+            while (reader.readLine() != null){
+                userInput = Integer.parseInt(reader.readLine());
+            }
+            switch (userInput){
+                case (1) -> shopAdder.addShopItem("Customer");
+                case (2) -> shopAdder.addShopItem("Product");
+                default -> System.out.println("There is not such option, please,try again");
+            }
 
         }catch (IOException ex){
 
@@ -78,12 +84,14 @@ public class NewMenu {
         System.out.println("For finding a customer press 1");
         System.out.println("For finding a product press 2");
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-
-                switch (Integer.parseInt(reader.readLine())) {
+            while (reader.readLine() != null) {
+                userInput = Integer.parseInt(reader.readLine());
+                switch (userInput) {
                     case (1) -> System.out.println(shopAdder.findCustomer(view.getCustomerToFind()));
                     case (2) -> System.out.println(shopAdder.findProduct(view.getProductToFind()));
                     default -> System.out.println("There is not such option, please,try again");
                 }
+            }
 
         } catch (IOException ex) {
 

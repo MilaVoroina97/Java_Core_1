@@ -31,8 +31,10 @@ public class ShopAdder extends AbstractShopAdder {
                 case ("Product") -> this.shopManager.addProduct(shopCreator.createProduct(),getIndex(type));
                 case ("Customer") -> this.shopManager.addCustomer(shopCreator.createCustomer(),getIndex(type));
             }
-        }catch (IOException | CannotAddShopItemException ex){
+        }catch (IOException ex){
             System.out.println(ex.getMessage());
+        }catch (CannotAddShopItemException exception){
+            throw new RuntimeException(exception);
         }
 
 
