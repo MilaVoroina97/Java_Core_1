@@ -20,11 +20,6 @@ import static java.nio.file.StandardOpenOption.*;
  */
 
 public class ConcatFiles {
-    public static void main(String[] args) {
-
-
-
-    }
 
     public static void mergeFiles(File file1,File file2) throws IOException {
 
