@@ -38,10 +38,10 @@ public class ConcatFiles {
 
     public static void mergeFiles2(File file1,File file2) throws IOException {
 
-        List<Path> fileContent = Arrays.asList(Paths.get(file1.getPath()),Paths.get(file2.getPath()));
+        List<Path> filePaths = Arrays.asList(Paths.get(file1.getPath()),Paths.get(file2.getPath()));
         Path mergeFile = Paths.get("mergeFile2.txt");
         Charset charset = StandardCharsets.UTF_8;
-        for(Path path : fileContent){
+        for(Path path : filePaths){
             List<String> lines = Files.readAllLines(path,charset);
             Files.write(mergeFile,lines,charset,StandardOpenOption.CREATE,
                     StandardOpenOption.APPEND);
