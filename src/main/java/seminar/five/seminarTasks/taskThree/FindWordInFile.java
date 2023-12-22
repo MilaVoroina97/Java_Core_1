@@ -1,6 +1,9 @@
 package seminar.five.seminarTasks.taskThree;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.charset.StandardCharsets;
@@ -11,8 +14,18 @@ import java.nio.file.StandardOpenOption;
 public class FindWordInFile {
 
     public static void main(String[] args) throws IOException {
-
+        byte[] byteArray = {65, 66, 67, 68};
         System.out.println(searchWord("The",Paths.get("the-file-name.txt")));
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(byteArray);
+        InputStreamReader reader = new InputStreamReader(inputStream);
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        int data;
+        while ((data = reader.read()) != -1) {
+            char ch = (char) data;
+            outputStream.write(ch);
+        }
+        char[] charArray = outputStream.toString().toCharArray();
+
     }
 
     private static final int MAX_SIZE = 4 * 1024; // 4K - make this * 1024 to 4MB in a real system.
