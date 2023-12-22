@@ -7,7 +7,7 @@ import java.util.List;
 public class SearchWordInFile {
 
     public static void main(String[] args) throws IOException {
-        searchWordInFile("the-file-name.txt","line");
+        searchWordInFile("the-file-name.txt","The");
     }
 
     public static void searchWordInFile(String path, String wordToFind) throws IOException, FileNotFoundException {
@@ -22,11 +22,13 @@ public class SearchWordInFile {
             while ((savedLine = reader.readLine()) != null){
                 saveAllLinesForRewriting.add(savedLine);
             }
-            if(saveAllLinesForRewriting.contains(wordToFind)){
-                count++;
-            }  if (count != 0) { // Check for count not equal to zero
-                System.out.println("The given word is present for " + count
-                        + " Times in the file");
+            for(String word : saveAllLinesForRewriting){
+                if(word.equals(wordToFind))
+                    count++;
+            }
+            if (count != 0) { // Check for count not equal to zero
+                System.out.println("The given word: " + wordToFind + " is present for " + count
+                        + " times in the file");
             } else {
                 System.out.println("The given word is not present in the file");
             }
